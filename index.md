@@ -53,8 +53,6 @@
 * When I put the requests that is `/add-message?s=How are you`, I get the page that `Hello` is in the first line, and `How are you` is in the second line.
  ![Image](Howareyou.png)
  
- 
-* Click the link: [How to Download Vscode](https://code.visualstudio.com/). The image of the link will be like that.
 
 
 ## Part 2
@@ -63,5 +61,6 @@
 ![Image](RemotelyConnecting.png)
 
 ## Part3
+In week 2, it is the first time I understood how to build and run the Server. I also learned how to run the Server on a remote computer, and implmented a web server that supports a pathfor adding a new string to the list, and a path for querying the list of strings and returning a list of all strings that we needed. In week 3, it is the first time I knowed the definition of Symptoms and Failure-inducing Inputs. I also know how to debug a basic method with Junit.
 
 ### That is all for the report 
