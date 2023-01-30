@@ -31,7 +31,6 @@ class Handler implements URLHandler {
         }
         }
     }
-
 public class StringServer {
     public static void main(String[] args) throws IOException {
         if(args.length == 0){
