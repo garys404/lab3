@@ -2,52 +2,55 @@
 ## Part 1 
 * Here is my code of `StringServer`.
 
-    import java.io.IOException;
-    import java.net.URI;
-    import java.util.ArrayList;
+        import java.io.IOException;
+        import java.net.URI;
+        import java.util.ArrayList;
 
-    class Handler implements URLHandler {
-        // The one bit of state on the server: a number that will be manipulated by
-        // various requests.
-        ArrayList<String> list = new ArrayList<String>();
-        String res = "";
+        class Handler implements URLHandler {
+            // The one bit of state on the server: a number that will be manipulated by
+            // various requests.
+            ArrayList<String> list = new ArrayList<String>();
+            String res = "";
 
-        /* (non-Javadoc)
-        * @see URLHandler#handleRequest(java.net.URI)
-        */
-        public String handleRequest(URI url) {
-            if (url.getPath().equals("/add-message")) {
-                String[] para = url.getQuery().split("=");
-                if(para[0].equals("s")){
-                    list.add(para[1]);
-                    res += list.get(list.size()-1)+ "\n";
-                    return res;
-                }
-                else{
+            /* (non-Javadoc)
+            * @see URLHandler#handleRequest(java.net.URI)
+            */
+            public String handleRequest(URI url) {
+                if (url.getPath().equals("/add-message")) {
+                    String[] para = url.getQuery().split("=");
+                    if(para[0].equals("s")){
+                        list.add(para[1]);
+                        res += list.get(list.size()-1)+ "\n";
+                        return res;
+                    }
+                    else{
+                        return "404 NOT FOUND";
+                    }
+                }else{
                     return "404 NOT FOUND";
                 }
-            }else{
-                return "404 NOT FOUND";
-            }
-            }
-        }
-        public class StringServer {
-            public static void main(String[] args) throws IOException {
-                if(args.length == 0){
-                    System.out.println("Missing port number! Try any number between 1024 to 49151");
-                    return;
                 }
+            }
+            public class StringServer {
+                public static void main(String[] args) throws IOException {
+                    if(args.length == 0){
+                        System.out.println("Missing port number! Try any number between 1024 to 49151");
+                        return;
+                    }
 
-                int port = Integer.parseInt(args[0]);
+                    int port = Integer.parseInt(args[0]);
 
-                Server.start(port, new Handler());
-        }
+                    Server.start(port, new Handler());
+            }
     
-        }
+            }
 
 * After finishing the codes, I just compile and run the codes by using `javac Server.java StringServer.java ` and `java StringServer 4000` in terminal.
+ 
+* When I put the requests that is `/add-message?s=Hello`, I get the page that show `Hello`.
  ![Image](Hello.png)
  
+* When I put the requests that is `/add-message?s=How are you`, I get the page that `Hello` is in the first line, and `How are you` is in the second line.
  ![Image](Howareyou.png)
  
  
