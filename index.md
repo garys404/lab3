@@ -1,5 +1,51 @@
-# Lab Report 1
-## 1. Part 1 
+# Lab Report 2 - Servers and Bugs
+## Part 1 
+That is my code for `StringServer`.
+
+import java.io.IOException;
+import java.net.URI;
+import java.util.ArrayList;
+
+class Handler implements URLHandler {
+    // The one bit of state on the server: a number that will be manipulated by
+    // various requests.
+    ArrayList<String> list = new ArrayList<String>();
+    String res = "";
+
+    /* (non-Javadoc)
+     * @see URLHandler#handleRequest(java.net.URI)
+     */
+    public String handleRequest(URI url) {
+        if (url.getPath().equals("/add-message")) {
+            String[] para = url.getQuery().split("=");
+            if(para[0].equals("s")){
+                list.add(para[1]);
+                res += list.get(list.size()-1)+ "\n";
+                return res;
+            }
+            else{
+                return "404 NOT FOUND";
+            }
+        }else{
+            return "404 NOT FOUND";
+        }
+        }
+    }
+
+public class StringServer {
+    public static void main(String[] args) throws IOException {
+        if(args.length == 0){
+            System.out.println("Missing port number! Try any number between 1024 to 49151");
+            return;
+        }
+
+        int port = Integer.parseInt(args[0]);
+
+        Server.start(port, new Handler());
+    }
+    
+}
+
 * Click the link: [How to Download Vscode](https://code.visualstudio.com/). The image of the link will be like that.
 
  ![Image](VScodeDownload.png)
@@ -21,7 +67,7 @@
 
 
 
-## 2. Part 2
+## Part 2
 1. Look up your course-specific account for CSE15L here: [Your Specific Account](https://sdacs.ucsd.edu/~icc/index.php).
 2. You need to follow the instructions and reset the password. Here is a tutorial: [How to Reset Your Password](https://docs.google.com/document/d/1hs7CyQeh-MdUfM9uv99i8tqfneos6Y8bDU0uhn1wqho/edit).
 3. You need to open the terminal in VScode and use `ssh` to connect remotely. Your command should be like `ssh cs15lwi23zz@ieng6.ucsd.edu` and `zz` should be replaced by the letters in your course-specific account.
@@ -29,7 +75,7 @@
 
 ![Image](RemotelyConnecting.png)
 
-## 3. Part3
+## Part3
 After you success in remotely connecting, you can try some commands in your terminal. There are some following commands that you can put in the terminal.
 
 * `cd ~`
