@@ -1,6 +1,6 @@
 # Lab Report 2 - Servers and Bugs
 ## Part 1 
-Here is my code of `StringServer`.
+* Here is my code of `StringServer`.
 
     import java.io.IOException;
     import java.net.URI;
@@ -45,26 +45,13 @@ Here is my code of `StringServer`.
     
         }
 
-After 
+* After finishing the codes, I just compile and run the codes by using `javac Server.java StringServer.java ` and `java StringServer 4000` in terminal.
+ ![Image](Hello.png)
+ 
+ ![Image](Howareyou.png)
+ 
+ 
 * Click the link: [How to Download Vscode](https://code.visualstudio.com/). The image of the link will be like that.
-
- ![Image](VScodeDownload.png)
-
-
- ![Image](123.png)
-
-* After you open a file, you should click the second button circled with red in the top right corner to open terminal.
-
- ![Image](12345.png)
-
-* Next, you should click the "terminal", and put your commands at the red arrow.
-
- ![Image](1234567.png)
-
-* Congraduation! You can put your commands in the right way.
-
- ![Image](VScode.png)
-
 
 
 ## Part 2
