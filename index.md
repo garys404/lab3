@@ -56,7 +56,7 @@
 #### Both of the requests in the two screenshots trigger the same process of the functions. 
 * `list` is an arraylist that stores all of the string part of inputs.
 * `res` is an empty string, to represent the current string part of current input.
-* `url` is the parameter that is the user's input.
+* `url` is the parameter that is the user's input.(It is the form of `/add-message?s=<string>`)
 
 #### After we inputing the `url` that is the parameter of `handleRequest`, we find both of the requests have `"/add-message"`, so we enter the if condition. We make split the `url` with two parts by `=`. If `"s"` is in the left side of `=` which is the `para[0]`, we just add the right side which is the `para[1]` to the `list`. Finally we will return the current string part of the user's input that is `res`, and make an new line for next input.
  
