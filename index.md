@@ -56,7 +56,49 @@
 
 
 ## Part 2
-1.
+
+### A failure-inducing input
+        @Test
+        public void testReverseInPlace2(){
+            int [] input2 = {1,2,3,4,5};
+            ArrayExamples.reverseInPlace(input2);
+            assertArrayEquals(new int[] {5,4,3,2,1,}, input2);
+        }
+
+### An input that doesn’t induce a failure
+	    @Test 
+	    public void testReverseInPlace() {
+                int[] input1 = { 3 };
+                ArrayExamples.reverseInPlace(input1);
+                assertArrayEquals(new int[]{ 3 }, input1);
+	    }
+
+### The symptom
+
+![Image](Symptom.png)
+
+### The bug(before fixing)
+        // Changes the input array to be in reversed order
+        static void reverseInPlace(int[] arr) {
+            for(int i = 0; i < arr.length; i += 1) {
+              arr[i] = arr[arr.length - i - 1];
+            }
+        }
+
+### The bug(after fixing)
+        // Changes the input array to be in reversed order
+        static void reverseInPlace(int[] arr) {
+            int [] NewArr = new int[arr.length];
+            for(int i = 0; i < arr.length; i += 1) {
+                NewArr[i] = arr[i];
+            }
+            for(int i = 0; i < arr.length; i += 1){
+            arr[i] = NewArr[arr.length - i - 1];
+            }
+        }
+
+* For this `reverseInPlace` method, the issue is that the current input was being replaced by the new input that we put, which causes we can not use the old input to make the reverse order. We fix the issue by add an new array to store the current input that is the old input. After we deal with the new input, we can still move the old input to make the reverse order.
+
 
 ![Image](RemotelyConnecting.png)
 
