@@ -1,6 +1,6 @@
 # Lab Report 2 - Servers and Bugs
 ## Part 1 
-### Here is my code of `StringServer`.
+#### Here is my code of `StringServer`.
 
         import java.io.IOException;
         import java.net.URI;
@@ -45,21 +45,22 @@
     
             }
 
-### After finishing the codes, I just compile and run the codes by using `javac Server.java StringServer.java ` and `java StringServer 4000` in terminal.
+#### After finishing the codes, I just compile and run the codes by using `javac Server.java StringServer.java ` and `java StringServer 4000` in terminal.
  
-### When I put the requests that is `/add-message?s=Hello`, I get the page that show `Hello`.
+#### When I put the requests that is `/add-message?s=Hello`, I get the page that show `Hello`.
  ![Image](Hello.png)
  
-### When I put the requests that is `/add-message?s=How are you`, I get the page that `Hello` is in the first line, and `How are you` is in the second line.
+#### When I put the requests that is `/add-message?s=How are you`, I get the page that `Hello` is in the first line, and `How are you` is in the second line.
  ![Image](Howareyou.png)
  
-### Both of the requests in the two screenshots trigger the same process of the functions. 
+#### Both of the requests in the two screenshots trigger the same process of the functions. 
 * `list` is an arraylist that stores all of the string part of inputs.
 * `res` is an empty string, to represent the current string part of current input.
 * `url` is the parameter that is the user's input.
 
-### After we inputing the `url` that is the parameter of `handleRequest`, we find both of the requests have `"/add-message"`, so we enter the if condition. We make split the `url` with two parts by `=`. If `"s"` is in the left side of `=` which is the `para[0]`, we just add the right side which is the `para[1]` to the `list`. Finally we will return the current string part of the user's input that is `res`, and make an new line for next input.
+#### After we inputing the `url` that is the parameter of `handleRequest`, we find both of the requests have `"/add-message"`, so we enter the if condition. We make split the `url` with two parts by `=`. If `"s"` is in the left side of `=` which is the `para[0]`, we just add the right side which is the `para[1]` to the `list`. Finally we will return the current string part of the user's input that is `res`, and make an new line for next input.
  
+
 
 
 ## Part 2
