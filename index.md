@@ -53,6 +53,13 @@
 * When I put the requests that is `/add-message?s=How are you`, I get the page that `Hello` is in the first line, and `How are you` is in the second line.
  ![Image](Howareyou.png)
  
+* Both of the requests in the two screenshots trigger the same process of the functions. 
+* `list` is an arraylist that stores all of the string part of inputs.
+* `res` is an empty string, to represent the current string part of current input.
+* `url` is parameter that is the user's input.
+* 
+* After we inputing the `url` that is the parameter of `handleRequest`, we find both of the requests have `"/add-message"`, so we enter the if condition. We make split the `url` with two parts by `=`. If `"s"` is in the left side of `=` which is the `para[0]`, we just add the right side which is the `para[1]` to the `list`. Finally we will return the current string part of the user's input that is `res`, and make an new line for next input.
+ 
 
 
 ## Part 2
@@ -100,7 +107,6 @@
 * For this `reverseInPlace` method, the issue is that the current input was being replaced by the new input that we put, which causes we can not use the old input to make the reverse order. We fix the issue by add an new array to store the current input that is the old input. After we deal with the new input, we can still move the old input to make the reverse order.
 
 
-![Image](RemotelyConnecting.png)
 
 ## Part3
 In week 2, it is the first time I understood how to build and run the Server. I also learned how to run the Server on a remote computer, and implmented a web server that supports a pathfor adding a new string to the list, and a path for querying the list of strings and returning a list of all strings that we needed. In week 3, it is the first time I knowed the definition of Symptoms and Failure-inducing Inputs. I also know how to debug a basic method with Junit.
